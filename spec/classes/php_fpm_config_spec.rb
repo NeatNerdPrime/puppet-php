@@ -21,8 +21,8 @@ describe 'php::fpm::config' do
           {
             inifile: '/etc/php5/conf.d/unique-name.ini',
             settings: {
-              'apc.enabled' => 1
-            }
+              'apc.enabled' => 1,
+            },
           }
         end
 
@@ -30,8 +30,8 @@ describe 'php::fpm::config' do
           is_expected.to contain_class('php::fpm::config').with(
             inifile: '/etc/php5/conf.d/unique-name.ini',
             settings: {
-              'apc.enabled' => 1
-            }
+              'apc.enabled' => 1,
+            },
           )
         end
 
@@ -39,8 +39,8 @@ describe 'php::fpm::config' do
           is_expected.to contain_php__config('fpm').with(
             file: '/etc/php5/conf.d/unique-name.ini',
             config: {
-              'apc.enabled' => 1
-            }
+              'apc.enabled' => 1,
+            },
           )
         end
       end

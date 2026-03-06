@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe 'php::extension' do
   on_supported_os.each do |os, facts|
-    next unless facts[:os]['family'] == 'RedHat' || facts[:os]['family'] == 'CentOS'
+    next unless %w[RedHat CentOS].include?(facts[:os]['family'])
 
     context "on #{os}" do
       let :facts do
@@ -38,10 +38,10 @@ describe 'php::extension' do
             ini_prefix: '20-',
             settings: {
               'bz2' => {
-                'Date/date.timezone' => 'Europe/Berlin'
-              }
+                'Date/date.timezone' => 'Europe/Berlin',
+              },
             },
-            multifile_settings: true
+            multifile_settings: true,
           }
         end
 

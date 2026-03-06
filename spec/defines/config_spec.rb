@@ -16,7 +16,7 @@ describe 'php::config' do
           let(:params) do
             {
               file: '/etc/php/5.6/conf.d/unique-name.ini',
-              config: {}
+              config: {},
             }
           end
 
@@ -29,8 +29,8 @@ describe 'php::config' do
             {
               file: '/etc/php/5.6/conf.d/unique-name.ini',
               config: {
-                'apc.enabled' => 1
-              }
+                'apc.enabled' => 1,
+              },
             }
           end
 
@@ -42,7 +42,7 @@ describe 'php::config' do
           let(:params) do
             {
               file: '/etc/php/5.6/conf.d/unique-name.ini',
-              config: {}
+              config: {},
             }
           end
 
@@ -54,7 +54,7 @@ describe 'php::config' do
           let(:params) do
             {
               file: '/etc/php/5.6/conf.d/unique-name.ini',
-              config: 'hello world'
+              config: 'hello world',
             }
           end
 
@@ -66,7 +66,7 @@ describe 'php::config' do
           let(:params) do
             {
               file: '/etc/php5/conf.d/unique-name.ini',
-              config: {}
+              config: {},
             }
           end
 
@@ -79,8 +79,8 @@ describe 'php::config' do
             {
               file: '/etc/php5/conf.d/unique-name.ini',
               config: {
-                'apc.enabled' => 1
-              }
+                'apc.enabled' => 1,
+              },
             }
           end
 
@@ -92,7 +92,7 @@ describe 'php::config' do
           let(:params) do
             {
               file: '/etc/php5/conf.d/unique-name.ini',
-              config: {}
+              config: {},
             }
           end
 
@@ -104,7 +104,7 @@ describe 'php::config' do
           let(:params) do
             {
               file: '/etc/php5/conf.d/unique-name.ini',
-              config: 'hello world'
+              config: 'hello world',
             }
           end
 

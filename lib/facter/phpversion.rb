@@ -5,8 +5,8 @@ Facter.add(:phpversion) do
     output = Facter::Util::Resolution.exec('php -v')
 
     unless output.nil?
-      output.split("\n").first.split.
-        grep(%r{^(?:(\d+)\.)(?:(\d+)\.)?(\*|\d+)}).first
+      output.split("\n").first.split
+            .grep(%r{^(?:(\d+)\.)(?:(\d+)\.)?(\*|\d+)}).first
     end
   end
 end

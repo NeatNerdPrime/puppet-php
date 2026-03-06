@@ -25,7 +25,7 @@ Puppet::Type.type(:package).provide :pecl, parent: :pear do
 
   def install(useversion = true)
     convert_to_pear
-    super(useversion)
+    super
   end
 
   def latest

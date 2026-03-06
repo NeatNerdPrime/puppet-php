@@ -49,8 +49,8 @@ Puppet::Type.type(:package).provide :pear, parent: Puppet::Provider::Package do
       {
         name: name,
         vendor: channel,
-        ensure: state == 'stable' ? version : state,
-        provider: self.name
+        ensure: (state == 'stable') ? version : state,
+        provider: self.name,
       }
     else
       Puppet.warning format('Could not match %s', desc)
@@ -85,7 +85,7 @@ Puppet::Type.type(:package).provide :pear, parent: Puppet::Provider::Package do
     if @resource[:responsefile]
       Puppet::Util::Execution.execute(
         [command(:pear)] + command,
-        stdinfile: @resource[:responsefile]
+        stdinfile: @resource[:responsefile],
       )
     else
       pear(*command)
