@@ -299,8 +299,8 @@ describe 'php', type: :class do
                 'PHP/memory_limit' => '300M',
                 'PHP/safe_mode_include_dir' => :undef,
                 'PHP/error_reporting' => '',
-                'PHP/max_execution_time' => 60
-              }
+                'PHP/max_execution_time' => 60,
+              },
             }
           end
 
@@ -314,7 +314,7 @@ describe 'php', type: :class do
           let(:params) do
             {
               'settings' => { 'PHP/memory_limit' => '300M' },
-              'cli_settings' => { 'PHP/memory_limit' => '1000M' }
+              'cli_settings' => { 'PHP/memory_limit' => '1000M' },
             }
           end
 

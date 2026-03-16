@@ -10,7 +10,7 @@ describe 'php::extension' do
       end
       let(:pre_condition) { 'include php' }
 
-      unless facts[:os]['family'] == 'Suse' || facts[:os]['family'] == 'FreeBSD' # FIXME: something is wrong on these
+      unless %w[Suse FreeBSD].include?(facts[:os]['family']) # FIXME: something is wrong on these
         etcdir, apachedir = case facts[:os]['name']
                             when 'Debian'
                               case facts[:os]['release']['major']
@@ -50,8 +50,8 @@ describe 'php::extension' do
             {
               package_prefix: 'php5-',
               settings: {
-                'test' => 'foo'
-              }
+                'test' => 'foo',
+              },
             }
           end
 
@@ -62,8 +62,8 @@ describe 'php::extension' do
               file: "#{etcdir}/json.ini",
               config: {
                 'extension' => 'json.so',
-                'test' => 'foo'
-              }
+                'test' => 'foo',
+              },
             )
           end
         end
@@ -74,8 +74,8 @@ describe 'php::extension' do
             {
               provider: 'none',
               settings: {
-                'test' => 'foo'
-              }
+                'test' => 'foo',
+              },
             }
           end
 
@@ -85,8 +85,8 @@ describe 'php::extension' do
               require: nil,
               config: {
                 'extension' => 'json.so',
-                'test' => 'foo'
-              }
+                'test' => 'foo',
+              },
             )
           end
         end
@@ -98,8 +98,8 @@ describe 'php::extension' do
               name: 'json',
               settings_prefix: true,
               settings: {
-                'test' => 'foo'
-              }
+                'test' => 'foo',
+              },
             }
           end
 
@@ -107,8 +107,8 @@ describe 'php::extension' do
             is_expected.to contain_php__config('json').with(
               config: {
                 'extension' => 'json.so',
-                'json.test' => 'foo'
-              }
+                'json.test' => 'foo',
+              },
             )
           end
         end
@@ -120,8 +120,8 @@ describe 'php::extension' do
               name: 'json',
               settings_prefix: 'bar',
               settings: {
-                'test' => 'foo'
-              }
+                'test' => 'foo',
+              },
             }
           end
 
@@ -129,8 +129,8 @@ describe 'php::extension' do
             is_expected.to contain_php__config('json').with(
               config: {
                 'extension' => 'json.so',
-                'bar.test' => 'foo'
-              }
+                'bar.test' => 'foo',
+              },
             )
           end
         end
@@ -139,7 +139,7 @@ describe 'php::extension' do
           let(:title) { 'xdebug' }
           let(:params) do
             {
-              zend: true
+              zend: true,
             }
           end
 
@@ -153,7 +153,7 @@ describe 'php::extension' do
               {
                 provider: 'pecl',
                 zend: true,
-                so_name: 'opcache'
+                so_name: 'opcache',
               }
             end
 
@@ -161,8 +161,8 @@ describe 'php::extension' do
               is_expected.to contain_php__config('zendopcache').with(
                 file: "#{etcdir}/opcache.ini",
                 config: {
-                  'zend_extension' => 'opcache.so'
-                }
+                  'zend_extension' => 'opcache.so',
+                },
               )
             end
           end
@@ -176,7 +176,7 @@ describe 'php::extension' do
                 provider: 'pecl',
                 zend: true,
                 ini_prefix: '10-',
-                so_name: 'opcache'
+                so_name: 'opcache',
               }
             end
 
@@ -184,8 +184,8 @@ describe 'php::extension' do
               is_expected.to contain_php__config('zendopcache').with(
                 file: "#{etcdir}/10-opcache.ini",
                 config: {
-                  'zend_extension' => 'opcache.so'
-                }
+                  'zend_extension' => 'opcache.so',
+                },
               )
             end
           end
@@ -198,7 +198,7 @@ describe 'php::extension' do
               {
                 provider: 'pecl',
                 zend: true,
-                php_api_version: '20100525'
+                php_api_version: '20100525',
               }
             end
 
@@ -212,7 +212,7 @@ describe 'php::extension' do
               let(:title) { 'xdebug' }
               let(:params) do
                 {
-                  zend: true
+                  zend: true,
                 }
               end
 
@@ -235,8 +235,8 @@ describe 'php::extension' do
                 let(:params) do
                   {
                     settings: {
-                      'test' => 'foo'
-                    }
+                      'test' => 'foo',
+                    },
                   }
                 end
 
@@ -245,8 +245,8 @@ describe 'php::extension' do
                     file: "#{etcdir}/json.ini",
                     config: {
                       'extension' => 'json.so',
-                      'test' => 'foo'
-                    }
+                      'test' => 'foo',
+                    },
                   )
                 end
 
@@ -255,8 +255,8 @@ describe 'php::extension' do
                     file: "#{apachedir}/json.ini",
                     config: {
                       'extension' => 'json.so',
-                      'test' => 'foo'
-                    }
+                      'test' => 'foo',
+                    },
                   )
                 end
               end
@@ -268,8 +268,8 @@ describe 'php::extension' do
                     zend: true,
                     settings: {
                       'remote_enable' => 'on',
-                      'remote_host' => 'localhost'
-                    }
+                      'remote_host' => 'localhost',
+                    },
                   }
                 end
 
@@ -279,8 +279,8 @@ describe 'php::extension' do
                     config: {
                       'zend_extension' => 'xdebug.so',
                       'remote_enable' => 'on',
-                      'remote_host' => 'localhost'
-                    }
+                      'remote_host' => 'localhost',
+                    },
                   )
                 end
 
@@ -290,8 +290,8 @@ describe 'php::extension' do
                     config: {
                       'zend_extension' => 'xdebug.so',
                       'remote_enable' => 'on',
-                      'remote_host' => 'localhost'
-                    }
+                      'remote_host' => 'localhost',
+                    },
                   )
                 end
               end
@@ -311,8 +311,8 @@ describe 'php::extension' do
                 let(:params) do
                   {
                     settings: {
-                      'test' => 'foo'
-                    }
+                      'test' => 'foo',
+                    },
                   }
                 end
 
@@ -321,8 +321,8 @@ describe 'php::extension' do
                     file: "#{etcdir}/json.ini",
                     config: {
                       'extension' => 'json.so',
-                      'test' => 'foo'
-                    }
+                      'test' => 'foo',
+                    },
                   )
                 end
 
@@ -351,8 +351,8 @@ describe 'php::extension' do
                   header_packages: ['libmemcached-dev'],
                   name: 'nice_name',
                   settings: {
-                    'test' => 'foo'
-                  }
+                    'test' => 'foo',
+                  },
                 }
               end
 
@@ -365,8 +365,8 @@ describe 'php::extension' do
                   file: "#{etcdir}/nice_name.ini",
                   config: {
                     'extension' => 'nice_name.so',
-                    'test' => 'foo'
-                  }
+                    'test' => 'foo',
+                  },
                 )
               end
             end
@@ -377,7 +377,7 @@ describe 'php::extension' do
               let(:title) { 'mysql' }
               let(:params) do
                 {
-                  name: 'mysql'
+                  name: 'mysql',
                 }
               end
 

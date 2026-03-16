@@ -7,12 +7,12 @@ describe 'to_hash_settings' do
   results = [
     {
       'a' => { 'key' => 'a', 'value' => 1 },
-      'b' => { 'key' => 'b', 'value' => 2 }
+      'b' => { 'key' => 'b', 'value' => 2 },
     },
     {
       'foo: a' => { 'key' => 'a', 'value' => 1 },
-      'foo: b' => { 'key' => 'b', 'value' => 2 }
-    }
+      'foo: b' => { 'key' => 'b', 'value' => 2 },
+    },
   ]
 
   describe 'when first parameter is not a hash' do
