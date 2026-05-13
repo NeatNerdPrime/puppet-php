@@ -25,8 +25,8 @@ class php::repo::debian (
   String[1] $repos        = 'all',
   Boolean $include_src    = false,
   Hash $key               = {
-    'id'     => '6572BBEF1B5FF28B28B706837E3F070089DF5277',
-    'source' => 'http://www.dotdeb.org/dotdeb.gpg',
+    'name'   => 'dotdeb.asc',
+    'source' => 'https://www.dotdeb.org/dotdeb.gpg',
   },
   Boolean $dotdeb         = true,
   Boolean $sury           = true,
@@ -59,7 +59,7 @@ class php::repo::debian (
         'deb' => true,
       },
       key      => {
-        id     => '15058500A0235D97F5D10063B188E2B695BD4743',
+        name   => 'php-sury.gpg',
         source => 'https://packages.sury.org/php/apt.gpg',
       },
     }
