@@ -1869,8 +1869,8 @@ Default value:
 
 ```puppet
 {
-    'id'     => '6572BBEF1B5FF28B28B706837E3F070089DF5277',
-    'source' => 'http://www.dotdeb.org/dotdeb.gpg',
+    'name'   => 'dotdeb.asc',
+    'source' => 'https://www.dotdeb.org/dotdeb.gpg',
   }
 ```
 
